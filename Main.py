@@ -4,6 +4,7 @@
 # Contact Info: jabrahams@hmc.edu
 import sys
 import ast
+import pprint
 
 def getd():
     """
@@ -49,6 +50,16 @@ def writed(stringd):
     dics = open("dictionary", "w+")
     dics.write(str(stringd))
     dics.close()
+
+def eth():
+    """
+    Print out the entire dictionary
+    """
+    try:
+        dics = open("dictionary", "r+")
+        pprint.pprint(dics, width=1)
+    except:
+        print "Dictionary not found. Aborting..."
 
 if __name__ == '__main__':
     function = getattr(sys.modules[__name__], sys.argv[1])
