@@ -49,7 +49,7 @@ def look(words):
     else:
         keylist = dic.keys()
         closest = difflib.get_close_matches(words, keylist)
-        if len(closest) = 0:
+        if len(closest) == 0:
             print "Word not found. Consider adding it in?"
             return
         closest = closest[0]
