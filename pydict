@@ -58,6 +58,7 @@ def look(words):
         print closest + " :"
         print dic[closest]
 
+
 def writed(stringd):
     """
     Write the dictionary to a file
@@ -71,16 +72,19 @@ def eth():
     Print out the entire dictionary
     """
     try:
-        dics = open("dictionary", "r+")
+        dics = getd()
         pprint.pprint(dics, width=1)
     except:
         print "Dictionary not found. Aborting..."
 
 if __name__ == '__main__':
     function = getattr(sys.modules[__name__], sys.argv[1])
-    word = sys.argv[2]
     try:
-        defin = sys.argv[3]
-        function(word, defin)
+    	word = sys.argv[2]
+    	try:
+        	defin = sys.argv[3]
+        	function(word, defin)
+        except:
+        	function(word)
     except:
-        function(word)
+    	function()
