@@ -2,9 +2,7 @@
 #
 # Written by Kanishk and Jon (2016)
 # Contact Info: jabrahams@hmc.edu
-import sys
-import ast
-import pprint
+import sys, ast, pprint, difflib
 
 def getd():
     """
@@ -37,11 +35,16 @@ def look(words):
     """
     words = str(words)
     dic = getd()
-    print words + " :"
     if words in dic:
+        print words + " :"
         print dic[words]
     else:
-        print "Words not found, maybe consider adding it in?"
+        keylist = dic.keys()
+        closest = difflib.get_close_matches(words, keylist)[0]
+        print "We couldn't find " + words
+        print "We found " + closest + " instead"
+        print closest + " :"
+        print dic[closest]
 
 def writed(stringd):
     """
