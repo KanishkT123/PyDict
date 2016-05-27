@@ -9,13 +9,13 @@ def getd():
     Open and read the dictionary
     """
     try:
-        dics = open("dictionary", "r+")
+        d = open("dictionary", "r+")
     except:
-        dics = open("dictionary", "w+")
-    dicstring = dics.read()
-    dics.close()
+        d = open("dictionary", "w+")
+    dstring = d.read()
+    d.close()
     try:
-        data = ast.literal_eval(dicstring)
+        data = ast.literal_eval(dstring)
         return data
     except:
         return {}
@@ -37,43 +37,43 @@ def delete(word):
     del d[word]
     writed(d)
 
-def look(words):
+def look(word):
     """
     Look up a word in the dictionary
     """
-    words = str(words)
-    dic = getd()
-    if words in dic:
-        print words + " :"
-        print dic[words]
+    word = str(word)
+    d = getd()
+    if word in d:
+        print word + " :"
+        print d[word]
     else:
-        keylist = dic.keys()
-        closest = difflib.get_close_matches(words, keylist)
+        keylist = d.keys()
+        closest = difflib.get_close_matches(word, keylist)
         if len(closest) == 0:
             print "Word not found. Consider adding it in?"
             return
         closest = closest[0]
-        print "We couldn't find " + words
+        print "We couldn't find " + word
         print "We found " + closest + " instead"
         print closest + " :"
-        print dic[closest]
+        print d[closest]
 
 
-def writed(stringd):
+def writed(dstring):
     """
     Write the dictionary to a file
     """
-    dics = open("dictionary", "w+")
-    dics.write(str(stringd))
-    dics.close()
+    d = open("dictionary", "w+")
+    d.write(str(dstring))
+    d.close()
 
 def eth():
     """
     Print out the entire dictionary
     """
     try:
-        dics = getd()
-        pprint.pprint(dics, width=1)
+        d = getd()
+        pprint.pprint(d, width=1)
     except:
         print "Dictionary not found. Aborting..."
 
