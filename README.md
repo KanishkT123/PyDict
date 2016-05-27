@@ -2,14 +2,19 @@
 A Simple Python Dictionary
 
 Works from the Unix command line:
+
 Run chmod a+x
+
 Run with pydict [function] [arg1] [arg2]
+
 Eg: 
-pydict add "Hello" "World"
+>pydict add "Hello" "World"
 
 Outputs to Command Line stdout:
+
 Eg:
-pydict look "Hello"
+>pydict look "Hello"
+
 >Hello
 
 >World
