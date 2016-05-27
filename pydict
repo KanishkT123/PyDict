@@ -44,8 +44,8 @@ def look(words):
     """
     words = str(words)
     dic = getd()
-    print words + " :"
     if words in dic:
+        print words + " :"
         print dic[words]
     else:
         print "Words not found, maybe consider adding it in?"
