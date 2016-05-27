@@ -30,6 +30,14 @@ def add(word, defin):
     writed(d)
     return d
 
+def delete(word):
+    """
+    Delete a word from the dictionary
+    """
+    d = getd()
+    del d[word]
+    writed(d)
+
 def look(words):
     """
     Look up a word in the dictionary
